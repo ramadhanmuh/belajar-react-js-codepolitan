@@ -9,6 +9,18 @@ class App extends Component {
     super();
     this.state = {
       namaResto: "Codepolitan",
+      menuMakanan: [
+        {
+          nama: 'Ayam Bakar',
+          harga: 25000,
+          stock: 10
+        },
+        {
+          nama: 'Nasi Goreng',
+          harga: 22000,
+          stock: 0
+        }
+      ]
     }
   }
 
@@ -24,12 +36,21 @@ class App extends Component {
     };
 
     return (
-      <div className='main-content-style'>
+      <div className='App'>
         <h1>Cafe dan Resto {this.state.namaResto}</h1>
         <button className='btn btn-primary' onClick={() => this.handleGantiNama ('Cipedes')}>Ganti Nama Resto</button>
         <h2>Menu Makanan</h2>
-        <MenuMakanan namaMenu={"Ayam Bakar"} hargaMenu={25000} />
-        <MenuMakanan namaMenu={"Nasi Goreng"} hargaMenu={22000} />
+        <MenuMakanan 
+          namaMenu={this.state.menuMakanan[0].nama}
+          hargaMenu={this.state.menuMakanan[0].harga}
+          stock={this.state.menuMakanan[0].stock}
+        />
+        <MenuMakanan 
+          namaMenu={this.state.menuMakanan[1].nama}
+          hargaMenu={this.state.menuMakanan[1].harga}
+          stock={this.state.menuMakanan[1].stock}
+        />
+
         <h2>Menu Minuman</h2>
         <MenuMinuman namaMenu={"Juice Melon"} hargaMenu={15000} />
         <MenuMinuman namaMenu={"Milkshake Strawberry"} hargaMenu={20000} />
