@@ -30,3 +30,9 @@
     transform: rotate(360deg);
   }
 }
+
+.main-content-style {
+  margin-top: 10px;
+  background-color: red;
+  border: 1px solid black;
+}

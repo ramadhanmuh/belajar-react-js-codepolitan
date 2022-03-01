@@ -11,10 +11,22 @@ class App extends Component {
       namaResto: "Codepolitan",
     }
   }
+
+  handleGantiNama = (nama) => {
+    this.setState({namaResto: nama})
+  }
+
   render() {
+    const mainContentStyle = {
+      marginTop: '10px',
+      backgroundColor: 'blue',
+      border: '1px solid black'
+    };
+
     return (
-      <div className='App'>
+      <div className='main-content-style'>
         <h1>Cafe dan Resto {this.state.namaResto}</h1>
+        <button onClick={() => this.handleGantiNama ('Cipedes')}>Ganti Nama Resto</button>
         <h2>Menu Makanan</h2>
         <MenuMakanan namaMenu={"Ayam Bakar"} hargaMenu={25000} />
         <MenuMakanan namaMenu={"Nasi Goreng"} hargaMenu={22000} />
