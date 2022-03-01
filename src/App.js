@@ -5,10 +5,16 @@ import MenuMakanan from './components/MenuMakanan/MenuMakanan';
 import MenuMinuman from './components/MenuMinuman/MenuMinuman';
 
 class App extends Component {
+  constructor() {
+    super();
+    this.state = {
+      namaResto: "Codepolitan",
+    }
+  }
   render() {
     return (
       <div className='App'>
-        <h1>Cafe dan Resto Codepolitan</h1>
+        <h1>Cafe dan Resto {this.state.namaResto}</h1>
         <h2>Menu Makanan</h2>
         <MenuMakanan namaMenu={"Ayam Bakar"} hargaMenu={25000} />
         <MenuMakanan namaMenu={"Nasi Goreng"} hargaMenu={22000} />
