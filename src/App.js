@@ -26,7 +26,7 @@ class App extends Component {
     return (
       <div className='main-content-style'>
         <h1>Cafe dan Resto {this.state.namaResto}</h1>
-        <button onClick={() => this.handleGantiNama ('Cipedes')}>Ganti Nama Resto</button>
+        <button className='btn btn-primary' onClick={() => this.handleGantiNama ('Cipedes')}>Ganti Nama Resto</button>
         <h2>Menu Makanan</h2>
         <MenuMakanan namaMenu={"Ayam Bakar"} hargaMenu={25000} />
         <MenuMakanan namaMenu={"Nasi Goreng"} hargaMenu={22000} />
