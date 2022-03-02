@@ -9,6 +9,9 @@ class App extends Component {
     super();
     this.state = {
       namaResto: "Codepolitan",
+      namaPembeli: '',
+      keterangan: '',
+      jenisPembayaran: '',
       menuMakanan: [
         {
           nama: 'Ayam Bakar',
@@ -51,10 +54,13 @@ class App extends Component {
     }
   }
 
-  handleGantiNama = (nama) => {
-    this.setState({namaResto: nama})
-  }
+  handleChange = (event) => {
+    var name = event.target.name
+    var value = event.target.value
 
+    this.setState({ [name]: value })
+  }
+  
   render() {
     const mainContentStyle = {
       marginTop: '10px',
@@ -66,6 +72,43 @@ class App extends Component {
       <div className='App'>
         <h1>Cafe dan Resto {this.state.namaResto}</h1>
         <button className='btn btn-primary' onClick={() => this.handleGantiNama ('Cipedes')}>Ganti Nama Resto</button>
+
+        <div className="row" style={{marginTop: '10px'}}>
+          <div className='col-md-4 offset-md-4'>
+            <form>
+              <div className='form-group'>
+                <label>Nama pembeli:</label>
+                <input className='form-control'
+                  name="namaPembeli"
+                  onChange={this.handleChange}
+                  value={this.state.namaPembeli} />
+                <small>Nama pembeli: {this.state.namaPembeli}</small>
+              </div>
+              <div className='form-group'>
+                <label>Keterangan</label>
+                <textarea className='form-control'
+                  name='keterangan'
+                  onChange={this.handleChange}
+                  value={this.state.keterangan}></textarea>
+                <small>Keterangan: {this.state.keterangan}</small>
+              </div>
+              <div className='form-group'>
+                <label>Jenis Pembayaran</label>
+                <select className='form-control'
+                  name='jenisPembayaran'
+                  value={this.state.value}
+                  onChange={this.handleChange}>
+                    <option value="">-- Pilih --</option>
+                    <option value="cash">Cash</option>
+                    <option value="kartuKredit">Kartu Kredit</option>
+                    <option value="voucher">Voucher</option>
+                  </select>
+                  <small>Jenis Pembayaran: {this.state.jenisPembayaran}</small>
+              </div>
+            </form>
+          </div>
+        </div>
+
         <h2>Menu Makanan</h2>
         <MenuMakanan 
           namaMenu={this.state.menuMakanan[0].nama}
