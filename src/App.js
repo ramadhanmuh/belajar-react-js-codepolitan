@@ -20,6 +20,33 @@ class App extends Component {
           harga: 22000,
           stock: 0
         }
+      ],
+      menuMinuman: [
+        {
+          id: 1,
+          nama: 'Juice Melon',
+          harga: 20000
+        },
+        {
+          id: 2,
+          nama: 'Milkshake Strawberry',
+          harga: 15000
+        },
+        {
+          id: 3,
+          nama: 'Juice Tomat',
+          harga: 15000
+        },
+        {
+          id: 4,
+          nama: 'Juice Mangga',
+          harga: 15000
+        },
+        {
+          id: 5,
+          nama: 'Juice Alpukat',
+          harga: 15000
+        }
       ]
     }
   }
@@ -52,8 +79,9 @@ class App extends Component {
         />
 
         <h2>Menu Minuman</h2>
-        <MenuMinuman namaMenu={"Juice Melon"} hargaMenu={15000} />
-        <MenuMinuman namaMenu={"Milkshake Strawberry"} hargaMenu={20000} />
+        { this.state.menuMinuman.map((menu, index) => 
+          <MenuMinuman key={menu.id} namaMenu={menu.harga} hargaMenu={menu.harga} />
+          )}
       </div>
     );
   }
